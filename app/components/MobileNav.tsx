@@ -7,6 +7,7 @@ import Styles from './styles/MobileNav.module.scss'
 interface Props {
   pathName: string | null;
   isActiveListing: () => boolean;
+  isScrolled: boolean
   params?: {
     slug: string
   }
@@ -17,7 +18,11 @@ export default function MobileNav(props: Props) {
 
   const burgerMenuStyles = isMenuClicked ? Styles.visible : Styles.NotVisible
 
-  const { pathName, isActiveListing } = props
+  const { pathName, isActiveListing, isScrolled } = props
+
+  const styles = {
+    backgroundColor: isScrolled ? 'white'  : 'black'
+  }
 
   const toggleMenu = () => {
     setIsMenuClicked(!isMenuClicked)
@@ -31,9 +36,9 @@ export default function MobileNav(props: Props) {
     <React.Fragment>
       <div className={Styles.burgerMenuContainer}>
         <div className={Styles.burgerMenu} onClick={e => toggleMenu()}>
-          <div className={Styles.burgerBar} ></div>
-          <div className={Styles.burgerBar} ></div>
-          <div className={Styles.burgerBar} ></div>
+          <div className={Styles.burgerBar} style={styles}></div>
+          <div className={Styles.burgerBar} style={styles}></div>
+          <div className={Styles.burgerBar} style={styles}></div>
         </div>
         <div className={burgerMenuStyles}>
           <Link href="/" className={pathName === '/' ? Styles.active : ''} onClick={e => handleClick()}>Home</Link>

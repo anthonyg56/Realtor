@@ -49,7 +49,7 @@ export default function Navbar(props: any) {
           <Link href="/about" className={pathname === '/about' ? Styles.active : ''}>About</Link>
           <Link href="/contact" className={pathname === '/contact' ? Styles.active : ''}>Contact</Link>
         </div>
-        <MobileNav pathName={pathname} isActiveListing={() => isActiveListing()}/>
+        <MobileNav pathName={pathname} isActiveListing={() => isActiveListing()} isScrolled={scrolled}/>
       </div>
     </main>
   )
