@@ -1,0 +1,18 @@
+.mainDiv {
+  min-height: 600px;
+  min-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentDiv {
+  height: 550px;
+  width: 550px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

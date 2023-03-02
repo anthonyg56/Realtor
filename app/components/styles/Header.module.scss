@@ -1,0 +1,22 @@
+.mainDiv {
+  height: 85vh;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), url("//img1.wsimg.com/isteam/ip/cc253ffa-8298-4fac-ac4e-9836c6c70f06/pixasquare-622732-unsplash.jpg/:/rs=w:1920,m");
+  background-repeat: no-repeat;
+  background-size: auto, cover;
+  background-position: center;
+}
+
+.innerDiv {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+  padding: 0 15px;
+
+  h1 {
+    font-size: 3.15em;
+  }
+}

@@ -1,0 +1,88 @@
+$background-color: rgba(0,0,0,0.75);
+
+.main {
+  z-index: 9999;
+  width: 100%;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: background;
+}
+
+.containerDiv {
+  display: flex;
+  width: 100%;
+  padding: 20px 45px;
+}
+
+.logoDiv {
+
+}
+
+.linksDiv {
+  margin-left: auto;
+
+  a {
+   margin: auto 0;
+   padding: 0 25px 10px 25px; 
+  }
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+.burgerMenuContainer {
+  margin-left: auto;
+  display: none;
+}
+
+.burgerMenu {
+  margin: auto 0;
+}
+
+.burgerBar {
+  margin-bottom: 5px;
+  width: 2em;
+  height: 0.2em;
+  background-color: white;
+  border-radius: 0.5em;
+}
+
+.visible {
+  transition: ease-out 0.5s;
+  position: absolute;
+  height: 100vh;
+  background: black;
+  top: 0;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  width: 45%;
+  color: white;
+
+  a {
+    margin-block: 2px;
+  }
+}
+
+.NotVisible {
+  display: none;
+}
+
+@media (max-width: 930px) {
+  .burgerMenuContainer {
+    display: flex;
+  }
+  .linksDiv{
+    display: none;
+  }
+}
+
+:export {
+  backgroundColor: $background-color
+}
