@@ -14,8 +14,8 @@ interface Props {
 export default function ActiveListingsDetailsPage(props: Props) {
   const { slug } = props.params
 
-  const activeListing = activeListingsItems.find(item => item.slug === slug) as IActiveListingItem
-
+  const activeListing = activeListingsItems.find(item => item.slug === slug)
+  if (!activeListing) return (<div>No active listing</div>)
   const { 
     images,
     propertyName,
