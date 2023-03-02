@@ -4,7 +4,7 @@ import Styles from './styles/ListItem.module.scss'
 
 interface Props {
   slug: string;
-  image: string;
+  coverPhoto: string;
   propertyName: string;
   briefDescription: string;
 }
@@ -12,7 +12,7 @@ interface Props {
 export default function ListItem(props: Props) {
   const {
     slug,
-    image,
+   coverPhoto,
     propertyName,
     briefDescription
   } = props
@@ -23,7 +23,7 @@ export default function ListItem(props: Props) {
         <div className={Styles.contentDiv}>
           <div className={Styles.imageDiv}>
             <div className={Styles.innerImageDiv}>
-             <img src={image} alt="" />
+             <img src={coverPhoto} alt="" />
             </div>
           </div>
           <hr />

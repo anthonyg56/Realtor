@@ -12,7 +12,7 @@ export default function ActiveListings() {
       <ListItem
         slug={element.slug}
         briefDescription={element.briefDescription}
-        image={element.image}
+        coverPhoto={element.coverPhoto}
         propertyName={element.propertyName}
       />
     );

@@ -17,7 +17,7 @@ export default function ActiveListingsDetailsPage(props: Props) {
   const activeListing = activeListingsItems.find(item => item.slug === slug)
   if (!activeListing) return (<div>No active listing</div>)
   const { 
-    images,
+    propertyImages,
     propertyName,
     price,
     fullDescription,
@@ -25,7 +25,7 @@ export default function ActiveListingsDetailsPage(props: Props) {
     bedRooms,
     bathRooms,
     size,
-    descPhoto
+    descriptionPhoto
   } = activeListing
 
   return (
@@ -33,7 +33,7 @@ export default function ActiveListingsDetailsPage(props: Props) {
       <main className={Style.main}>
         <div className={Style.div}>
           <Header 
-            images={images}
+            images={propertyImages}
             propertyName={propertyName}
             price={price}
           />
@@ -42,7 +42,7 @@ export default function ActiveListingsDetailsPage(props: Props) {
             bathrooms={bathRooms}
             bedRooms={bedRooms}
             description={fullDescription}
-            image={descPhoto}
+            image={descriptionPhoto}
             houseSize={size}
           />
         </div>
