@@ -3,9 +3,29 @@ import AboutMeBiography from './components/AboutMeBiography'
 import AboutMePic from './components/AboutMePic'
 import AboutMeTitle from './components/AboutMeTitle'
 import Styles from './components/styles/Page.module.scss'
-import { AboutMeData } from '@/data/activeListingsData'
-export default function AboutPage() {
+import * as Contentful from 'contentful'
+import { IAboutMeFields } from '@/@types'
 
+const client = Contentful.createClient({
+  space: '3482eq1mhzki',
+  accessToken: '4NrRmHPrf_v9RMyQij7GfKAV65bH39hjqHONkCHrPE4'
+})
+
+const getAboutMeData = async () => {
+  const listItems = await client.getEntries<IAboutMeFields>('aboutMe')
+  .then((contentType) => {
+    const items = contentType.items
+
+    return items
+  })
+  .catch(console.error)
+
+
+  return listItems
+}
+export default async function AboutPage() {
+  const data = await getAboutMeData() as Contentful.Entry<IAboutMeFields>[]
+  
   return (
     <React.Fragment>
       <div className={Styles.mainDiv}>
@@ -13,8 +33,8 @@ export default function AboutPage() {
           <AboutMeTitle />
           <hr />
           <div className={Styles.contentDiv}>
-            <AboutMePic image={AboutMeData.image} />
-            <AboutMeBiography description={AboutMeData.description} />
+            <AboutMePic image={data[0].fields.profilePic.fields.file.url} />
+            <AboutMeBiography description={data[0].fields.biography} />
           </div>
         </div>
       </div>

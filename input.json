@@ -1,0 +1,353 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "id": "aboutMe",
+        "type": "ContentType"
+      },
+      "name": "About Me",
+  "description": "Place to talk about your self for the About Me page of the website",
+  "displayField": "name",
+  "fields": [
+    {
+      "id": "biography",
+      "name": "Biography",
+      "type": "Text",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "size": {
+            "min": 0,
+            "max": 4500
+          },
+          "message": "Bro chill"
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "name",
+      "name": "Name",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "profilePic",
+      "name": "Profile Pic",
+      "type": "Link",
+      "localized": false,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Asset"
+    }
+  ],
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "3482eq1mhzki"
+      }
+    },
+    "id": "aboutMe",
+    "type": "ContentType",
+    "createdAt": "2023-03-05T20:17:46.374Z",
+    "updatedAt": "2023-03-05T20:33:55.258Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 3,
+    "publishedAt": "2023-03-05T20:33:55.258Z",
+    "firstPublishedAt": "2023-03-05T20:17:46.691Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "1u3dc3zSGSOKKpci3lqDW3"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "1u3dc3zSGSOKKpci3lqDW3"
+      }
+    },
+    "publishedCounter": 2,
+    "version": 4,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "1u3dc3zSGSOKKpci3lqDW3"
+      }
+    }
+  }
+    },
+    {
+      "sys": {
+        "id": "listItem",
+        "type": "ContentType"
+      },
+      "name": "List Item",
+        "description": "different properties available",
+        "displayField": "propertyName",
+        "fields": [
+          {
+            "id": "coverImage",
+            "name": "Cover Image",
+            "type": "Link",
+            "localized": false,
+            "required": true,
+            "validations": [],
+            "disabled": false,
+            "omitted": false,
+            "linkType": "Asset"
+          },
+          {
+            "id": "propertyName",
+            "name": "PropertyName",
+            "type": "Symbol",
+            "localized": false,
+            "required": true,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "briefDescription",
+            "name": "Brief Description",
+            "type": "Symbol",
+            "localized": false,
+            "required": true,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "slug",
+            "name": "Slug",
+            "type": "Symbol",
+            "localized": false,
+            "required": true,
+            "validations": [
+              {
+                "unique": true
+              }
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "price",
+            "name": "Price",
+            "type": "Number",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "address",
+            "name": "address",
+            "type": "Symbol",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "bedRooms",
+            "name": "Bed Rooms",
+            "type": "Number",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "bathRooms",
+            "name": "Bath Rooms",
+            "type": "Number",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "size",
+            "name": "Size",
+            "type": "Integer",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "propertyPhotos",
+            "name": "Property Photos",
+            "type": "Array",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false,
+            "items": {
+              "type": "Link",
+              "validations": [],
+              "linkType": "Asset"
+            }
+          },
+          {
+            "id": "description",
+            "name": "Description",
+            "type": "Text",
+            "localized": false,
+            "required": false,
+            "validations": [
+              {
+                "size": {
+                  "min": 1,
+                  "max": 1000
+                },
+                "message": "You're typing too much"
+              }
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "descriptionPhoto",
+            "name": "Description Photo",
+            "type": "Link",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false,
+            "linkType": "Asset"
+          },
+          {
+            "id": "fullDescription",
+            "name": "Full Description",
+            "type": "RichText",
+            "localized": false,
+            "required": false,
+            "validations": [
+              {
+                "enabledMarks": [
+                  "bold",
+                  "italic",
+                  "underline",
+                  "code",
+                  "superscript",
+                  "subscript"
+                ],
+                "message": "Only bold, italic, underline, code, superscript, and subscript marks are allowed"
+              },
+              {
+                "enabledNodeTypes": [
+                  "heading-1",
+                  "heading-2",
+                  "heading-3",
+                  "heading-4",
+                  "heading-5",
+                  "heading-6",
+                  "ordered-list",
+                  "unordered-list",
+                  "hr",
+                  "blockquote",
+                  "embedded-entry-block",
+                  "embedded-asset-block",
+                  "table",
+                  "hyperlink",
+                  "entry-hyperlink",
+                  "asset-hyperlink",
+                  "embedded-entry-inline"
+                ],
+                "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+              },
+              {
+                "nodes": {}
+              }
+            ],
+            "disabled": false,
+            "omitted": false
+          },
+          {
+            "id": "address2",
+            "name": "Address 2",
+            "type": "Location",
+            "localized": false,
+            "required": false,
+            "validations": [],
+            "disabled": false,
+            "omitted": false
+          }
+        ],
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "3482eq1mhzki"
+            }
+          },
+          "id": "listItem",
+          "type": "ContentType",
+          "createdAt": "2023-03-02T03:06:15.838Z",
+          "updatedAt": "2023-03-02T22:56:01.845Z",
+          "environment": {
+            "sys": {
+              "id": "master",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "publishedVersion": 9,
+          "publishedAt": "2023-03-02T22:56:01.845Z",
+          "firstPublishedAt": "2023-03-02T03:06:16.156Z",
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1u3dc3zSGSOKKpci3lqDW3"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1u3dc3zSGSOKKpci3lqDW3"
+            }
+          },
+          "publishedCounter": 5,
+          "version": 10,
+          "publishedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1u3dc3zSGSOKKpci3lqDW3"
+            }
+          }
+        }
+      }
+  ]
+}

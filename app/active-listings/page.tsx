@@ -1,17 +1,39 @@
-import { activeListingsItems } from '@/data/activeListingsData';
-import Link from 'next/link'
 import React from 'react'
 import ListItem from '../components/ListItem';
 import Title from './components/Title'
 import Styles from './components/styles/Page.module.scss'
+import * as Contentful from 'contentful'
+import { IListItemFields, TListItem } from '@/@types';
 
-export default function ActiveListingsPage() {
-  const ListItems = activeListingsItems.length ? activeListingsItems.map(element => {
+const client = Contentful.createClient({
+  space: '3482eq1mhzki',
+  accessToken: '4NrRmHPrf_v9RMyQij7GfKAV65bH39hjqHONkCHrPE4'
+})
+
+const getListItems = async () => {
+  const listItems = await client.getEntries<IListItemFields>('listItem')
+  .then((contentType) => {
+    const items = contentType.items
+
+    console.log(items)
+
+    return items
+  })
+  .catch(console.error)
+
+
+  return listItems
+}
+
+export default async function ActiveListingsPage() {
+  const listItems = await getListItems()
+
+  const ListItems = listItems ?listItems.map(({ fields: element }) => {
     return (
       <ListItem
         slug={element.slug}
         briefDescription={element.briefDescription}
-        coverPhoto={element.coverPhoto}
+        coverPhoto={element.coverImage.fields.file.url}
         propertyName={element.propertyName}
       />
     );

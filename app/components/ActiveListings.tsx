@@ -1,18 +1,42 @@
 import React from 'react';
-import { activeListingsItems } from '../../data/activeListingsData';
 import ListItem from "./ListItem";
 import Styles from "./styles/ActiveListings.module.scss"
+import * as Contentful from 'contentful'
+import { IListItemFields, TListItem } from '@/@types';
 
-export default function ActiveListings() {
+const client = Contentful.createClient({
+  space: '3482eq1mhzki',
+  accessToken: '4NrRmHPrf_v9RMyQij7GfKAV65bH39hjqHONkCHrPE4'
+})
+
+const getListItems = async () => {
+  const listItems = await client.getEntries<IListItemFields>('listItem')
+  .then((contentType) => {
+    const items = contentType.items
+
+    console.log(items)
+
+    return items
+  })
+  .catch(console.error)
+
+
+  return listItems
+}
+
+export default async function ActiveListings() {
+  const ListItems = await getListItems()
+
   /* Only want the first 3 items, so we slice the array */
-  const consolidatedList = activeListingsItems.slice(0,3);
+  const consolidatedList = ListItems?.slice(0,3);
 
-  const ListItems = consolidatedList.length ? consolidatedList.map(element => {
+  const ListItemsDisplay = consolidatedList ? consolidatedList.map(({ fields: element }) => {
+    
     return (
       <ListItem
         slug={element.slug}
         briefDescription={element.briefDescription}
-        coverPhoto={element.coverPhoto}
+        coverPhoto={element.coverImage.fields.file.url}
         propertyName={element.propertyName}
       />
     );
@@ -28,7 +52,7 @@ export default function ActiveListings() {
           <hr className={Styles.hr} />
           <div>
             <div className={Styles.listItemsDiv}>
-              { ListItems }
+              { ListItemsDisplay }
             </div>
           </div>
         </div>

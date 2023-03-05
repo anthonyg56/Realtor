@@ -2,7 +2,26 @@ import React from 'react'
 import Header from './components/Header'
 import Description from './components/Description'
 import Style from './components/styles/Page.module.scss'
-import { activeListingsItems, IActiveListingItem } from '../../../data/activeListingsData'
+import { IListItemFields } from '@/@types'
+import * as Contentful from 'contentful'
+
+const client = Contentful.createClient({
+  space: '3482eq1mhzki',
+  accessToken: '4NrRmHPrf_v9RMyQij7GfKAV65bH39hjqHONkCHrPE4'
+})
+
+const getListItem = async (slug: string) => {
+  const listItems = await client.getEntries<IListItemFields>({ content_type: 'listItem', 'fields.slug': slug})
+  .then((contentType) => {
+    const items = contentType.items
+
+    return items
+  })
+  .catch(console.error)
+
+
+  return listItems
+}
 
 interface Props {
   params: {
@@ -11,29 +30,34 @@ interface Props {
   searchParams: {}
 }
 
-export default function ActiveListingsDetailsPage(props: Props) {
+export default async function ActiveListingsDetailsPage(props: Props) {
   const { slug } = props.params
 
-  const activeListing = activeListingsItems.find(item => item.slug === slug)
-  if (!activeListing) return (<div>No active listing</div>)
+  const listItem = await getListItem(slug)
+
+  if (!listItem) return (<div>No active listing</div>)
+
   const { 
-    propertyImages,
+    propertyPhotos,
     propertyName,
     price,
-    fullDescription,
+    description,
     address,
     bedRooms,
     bathRooms,
     size,
     descriptionPhoto
-  } = activeListing
+  } = listItem[0].fields
+
+  /* Collect all the photos and store the URL's in an array */
+  const photos = propertyPhotos.map(({ fields }) => fields.file.url)
 
   return (
     <React.Fragment>
       <main className={Style.main}>
         <div className={Style.div}>
           <Header 
-            images={propertyImages}
+            images={photos}
             propertyName={propertyName}
             price={price}
           />
@@ -41,8 +65,8 @@ export default function ActiveListingsDetailsPage(props: Props) {
             address={address}
             bathrooms={bathRooms}
             bedRooms={bedRooms}
-            description={fullDescription}
-            image={descriptionPhoto}
+            description={description}
+            image={descriptionPhoto.fields.file.url}
             houseSize={size}
           />
         </div>
