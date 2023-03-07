@@ -10,12 +10,10 @@ const client = Contentful.createClient({
 })
 
 const getListItems = async () => {
-  const listItems = await client.getEntries<IListItemFields>('listItem')
+  const listItems = await client.getEntries<IListItemFields>({ content_type: 'listItem'})
   .then((contentType) => {
     const items = contentType.items
-
-    console.log(items)
-
+    // console.log(items)
     return items
   })
   .catch(console.error)
@@ -30,14 +28,16 @@ export default async function ActiveListings() {
   /* Only want the first 3 items, so we slice the array */
   const consolidatedList = ListItems?.slice(0,3);
 
-  const ListItemsDisplay = consolidatedList ? consolidatedList.map(({ fields: element }) => {
-    
+  const ListItemsDisplay = consolidatedList ? consolidatedList.map(element => {
+    console.log(element)
+    const item = element
+    console.log(item)
     return (
       <ListItem
-        slug={element.slug}
-        briefDescription={element.briefDescription}
-        coverPhoto={element.coverImage.fields.file.url}
-        propertyName={element.propertyName}
+        slug={item.fields.slug}
+        briefDescription={item.fields.briefDescription}
+        coverPhoto={item.fields.coverImage.fields.file.url}
+        propertyName={item.fields.propertyName}
       />
     );
   }) : ( <div><h3>No Active Listings Available</h3></div> );

@@ -11,11 +11,9 @@ const client = Contentful.createClient({
 })
 
 const getListItems = async () => {
-  const listItems = await client.getEntries<IListItemFields>('listItem')
+  const listItems = await client.getEntries<IListItemFields>({ content_type: 'listItem'})
   .then((contentType) => {
     const items = contentType.items
-
-    console.log(items)
 
     return items
   })
