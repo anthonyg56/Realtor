@@ -12,7 +12,7 @@ const client = Contentful.createClient({
 })
 
 const getAboutMeData = async () => {
-  const listItems = await client.getEntries<IAboutMeFields>('aboutMe')
+  const listItems = await client.getEntries<IAboutMeFields>({ content_type: 'aboutMe' })
   .then((contentType) => {
     const items = contentType.items
 
@@ -20,9 +20,9 @@ const getAboutMeData = async () => {
   })
   .catch(console.error)
 
-
   return listItems
 }
+
 export default async function AboutPage() {
   const data = await getAboutMeData() as Contentful.Entry<IAboutMeFields>[]
   
