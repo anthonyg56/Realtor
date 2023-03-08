@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <React.Fragment >
       <Header />
+      {/* @ts-expect-error Server Component */}
       <ActiveListings />
       <ContactMe />
       <Socials />
