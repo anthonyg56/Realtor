@@ -13,7 +13,6 @@ const client = Contentful.createClient({
 const getListItem = async (slug: string) => {
   const listItems = await client.getEntries<IListItemFields>({ content_type: 'listItem', 'fields.slug': slug })
   .then((contentType) => {
-    console.log(contentType.items)
     const items = contentType.items
 
     return items
@@ -49,7 +48,8 @@ export default async function ActiveListingsDetailsPage(props: Props) {
   //   size,
   //   descriptionPhoto
   // } = listItem[0].fields
-
+  console.log(listItem)
+  console.log(listItem[0])
   /* Collect all the photos and store the URL's in an array */
   const photos = listItem[0].fields.propertyPhotos.map(element => element.fields.file.url)
 
