@@ -34,6 +34,7 @@ interface Props {
 export default async function ActiveListingsDetailsPage(props: Props) {
   const { slug } = props.params
 
+  console.log(slug)
   const listItem = await getListItem(slug)
 
   if (!listItem) return (<div>No active listing</div>)
