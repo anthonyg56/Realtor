@@ -13,11 +13,9 @@ const getListItems = async () => {
   const listItems = await client.getEntries<IListItemFields>({ content_type: 'listItem'})
   .then((contentType) => {
     const items = contentType.items
-    // console.log(items)
     return items
   })
   .catch(console.error)
-
 
   return listItems
 }
@@ -29,9 +27,7 @@ export default async function ActiveListings() {
   const consolidatedList = ListItems?.slice(0,3);
 
   const ListItemsDisplay = consolidatedList ? consolidatedList.map(element => {
-    console.log(element)
     const item = element
-    console.log(item)
     return (
       <ListItem
         slug={item.fields.slug}

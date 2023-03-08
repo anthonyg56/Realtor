@@ -13,6 +13,7 @@ const client = Contentful.createClient({
 const getListItem = async (slug: string) => {
   const listItems = await client.getEntries<IListItemFields>({ content_type: 'listItem', 'fields.slug': slug })
   .then((contentType) => {
+    console.log(contentType.items)
     const items = contentType.items
 
     return items
@@ -37,20 +38,20 @@ export default async function ActiveListingsDetailsPage(props: Props) {
 
   if (!listItem) return (<div>No active listing</div>)
 
-  const { 
-    propertyPhotos,
-    propertyName,
-    price,
-    description,
-    address,
-    bedRooms,
-    bathRooms,
-    size,
-    descriptionPhoto
-  } = listItem[0].fields
+  // const { 
+  //   propertyPhotos,
+  //   propertyName,
+  //   price,
+  //   description,
+  //   address,
+  //   bedRooms,
+  //   bathRooms,
+  //   size,
+  //   descriptionPhoto
+  // } = listItem[0].fields
 
   /* Collect all the photos and store the URL's in an array */
-  const photos = propertyPhotos.map(({ fields }) => fields.file.url)
+  const photos = listItem[0].fields.propertyPhotos.map(element => element.fields.file.url)
 
   return (
     <React.Fragment>
@@ -58,16 +59,16 @@ export default async function ActiveListingsDetailsPage(props: Props) {
         <div className={Style.div}>
           <Header 
             images={photos}
-            propertyName={propertyName}
-            price={price}
+            propertyName={listItem[0].fields.propertyName}
+            price={listItem[0].fields.price}
           />
           <Description 
-            address={address}
-            bathrooms={bathRooms}
-            bedRooms={bedRooms}
-            description={description}
-            image={descriptionPhoto.fields.file.url}
-            houseSize={size}
+            address={listItem[0].fields.address}
+            bathrooms={listItem[0].fields.bathRooms}
+            bedRooms={listItem[0].fields.bedRooms}
+            description={listItem[0].fields.description}
+            image={listItem[0].fields.descriptionPhoto.fields.file.url}
+            houseSize={listItem[0].fields.size}
           />
         </div>
       </main>
