@@ -1,4 +1,5 @@
 import React from 'react'
+import Styles from '../styles/Description.module.scss'
 
 interface Props {
   image: string;
@@ -9,8 +10,8 @@ export default function DescriptionImage(props: Props) {
 
   return (
     <React.Fragment>
-      <div>
-        <div>
+      <div className={Styles.imgContainer}>
+        <div className={Styles.img}>
           <img src={image} alt="" />
         </div>
       </div>

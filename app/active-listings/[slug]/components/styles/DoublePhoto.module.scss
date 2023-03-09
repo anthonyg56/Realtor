@@ -1,3 +1,19 @@
 .container {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.photo1Container {
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.photo2Container {
+  img {
+    height: 100%;
+    width: 100%;
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import DescriptionBody from './DescriptionBody';
 import DescriptionTitle from './DescriptionTitle'
+import Styles from '../styles/Description.module.scss'
 
 interface Props {
   address: string;
