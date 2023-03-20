@@ -13,7 +13,7 @@
 
 .title {
   h2 {
-
+    font-weight: 600;
   }
 }
 
@@ -24,6 +24,9 @@
 
 .rooms {
 
+  h4 {
+    font-weight: 600;
+  }
 }
 
 
@@ -32,8 +35,20 @@
 }
 
 .btn {
-
+  padding: 40px 0;
+  text-align: center;
+  
   button {
-    
+    background: black;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: white;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 }
+

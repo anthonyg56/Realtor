@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import DescriptionImage from './description/DescriptionImage';
 import DescriptionText from './description/DescriptionText';
 import Styles from './styles/Description.module.scss'
@@ -28,7 +29,7 @@ export default function Description(props: Props) {
         <DescriptionText  bathRooms={bathrooms} bedRooms={bedRooms} description={description} houseSize={houseSize} address={address} />
         <DescriptionImage image={image} />
         <div className={Styles.btn}>
-          <button>Schedule a Tour Today</button>
+          <button><Link href="/contact">Schedule a Tour Today</Link></button>
         </div>
       </div>
     </React.Fragment>

@@ -24,10 +24,12 @@ export default function DescriptionText(props: Props) {
     <React.Fragment>
       <div>
         <div>
+          <br />
           <DescriptionTitle address={address} />
           <hr />
           <br />
           <DescriptionBody bathRooms={bathRooms} bedRooms={bedRooms} description={description} houseSize={houseSize} />
+          <br />
         </div>
       </div>
     </React.Fragment>

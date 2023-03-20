@@ -11,12 +11,12 @@ export default function DoublePhoto(props: Props) {
   return (
     <React.Fragment>
       <div className={Styles.container}>
-        <div>
+        <div className={Styles.photoOutterContainer}>
           <div className={Styles.photo1Container}>
             <img src={img1} alt="" />
           </div>
         </div>
-        <div>
+        <div className={Styles.photoOutterContainer}>
           <div className={Styles.photo2Container}>
             <img src={img2} alt="" />
           </div>

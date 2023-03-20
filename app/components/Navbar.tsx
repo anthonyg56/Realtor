@@ -12,7 +12,8 @@ export default function Navbar(props: any) {
 
   const styles = { 
     backgroundColor: scrolled ? Styles.backgroundColor : '',
-    color: scrolled ? '#ffffff' : 'rgba(0,0,0)'
+    color: scrolled ? '#ffffff' : 'rgba(0,0,0)',
+    borderColor: scrolled ? '#ffffff' : 'rgba(0,0,0)'
   }
 
   const handleScroll = () => {
