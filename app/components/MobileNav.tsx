@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Styles from './styles/MobileNav.module.scss'
+import Image from 'next/image';
+import CloseIcon from '../../public/close.png'
 
 interface Props {
   pathName: string | null;
@@ -41,6 +43,9 @@ export default function MobileNav(props: Props) {
           <div className={Styles.burgerBar} style={styles}></div>
         </div>
         <div className={burgerMenuStyles}>
+          <div className={Styles.closePng}>
+            <Image src={CloseIcon} alt="Close Icon" onClick={() => setIsMenuClicked(!isMenuClicked)}/>
+          </div>
           <Link href="/" className={pathName === '/' ? Styles.active : ''} onClick={e => handleClick()}>Home</Link>
           <Link href="/active-listings" className={isActiveListing() ? Styles.active : ''}  onClick={e => handleClick()}>Active Listings</Link>
           <Link href="/about" className={pathName === '/about' ? Styles.active : ''}  onClick={e => handleClick()}>About</Link>
