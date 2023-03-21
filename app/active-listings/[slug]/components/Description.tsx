@@ -3,6 +3,7 @@ import Link from 'next/link'
 import DescriptionImage from './description/DescriptionImage';
 import DescriptionText from './description/DescriptionText';
 import Styles from './styles/Description.module.scss'
+import CallToAction from './description/CallToAction';
 
 interface Props {
   description: string;
@@ -28,9 +29,7 @@ export default function Description(props: Props) {
       <div>
         <DescriptionText  bathRooms={bathrooms} bedRooms={bedRooms} description={description} houseSize={houseSize} address={address} />
         <DescriptionImage image={image} />
-        <div className={Styles.btn}>
-          <button><Link href="/contact">Schedule a Tour Today</Link></button>
-        </div>
+        <CallToAction />
       </div>
     </React.Fragment>
   )
