@@ -6,7 +6,7 @@ export default function Header() {
     <React.Fragment>
       <div className={Styles.mainDiv}>
         <div className={Styles.innerDiv}>
-          <h1>[Realtor's Name] <br /> Real Estate Broker <br /> Located in Indianapolis</h1>
+          <h1>Alec Mason <br /> Real Estate Broker <br /> Located in Indianapolis</h1>
         </div>
       </div>
     </React.Fragment>

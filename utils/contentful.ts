@@ -1,8 +1,10 @@
 import contentful from 'contentful'
 
+const token = '' || process.env.CONTENTFUL_ACCESS_TOKEN
+
 const client = contentful.createClient({
   space: '3482eq1mhzki',
-  accessToken: '4NrRmHPrf_v9RMyQij7GfKAV65bH39hjqHONkCHrPE4'
+  accessToken: token as string
 })
 
 export const getListItems = async () => {

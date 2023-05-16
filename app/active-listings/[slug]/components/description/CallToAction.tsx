@@ -7,7 +7,7 @@ export default function CallToAction() {
     <React.Fragment>
       <div className={Styles.callToAction}>
         <div className={Styles.title}>
-          <h2>[Insert Some Witty Line]</h2>
+          <h2>Lets Chat!</h2>
         </div>
         <div className={Styles.btn}>
           <button><Link href="/contact">Schedule a Tour Today</Link></button>
