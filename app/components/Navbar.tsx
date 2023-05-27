@@ -41,7 +41,7 @@ export default function Navbar(props: any) {
       <div className={Styles.containerDiv}>
         <div className={Styles.logoDiv}>
           <Link href='/'>
-            <h2>[Realtor's Name]</h2>
+            <h2>MasonSellsIndy</h2>
           </Link>
         </div>
         <div className={Styles.linksDiv}>

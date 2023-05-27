@@ -61,7 +61,7 @@ export default function ContactForm(props: Props) {
       }}>
         <div className={Styles.container}>
           <div className={Styles.titleContainer}>
-            <h3>Send Message or Directly Email: <a href="mailto:masonsellsindy@gmail.com?">masonsellsindy@gmail.com</a></h3>
+            <h3>Send Message or Directly Contact: <a href="mailto:alec@masonsellsindy.com?">alec@masonsellsindy.com</a>/317-354-3808</h3>
           </div>
           <div className={Styles.inputDiv}>
             <div className={Styles.inputContainer}>
