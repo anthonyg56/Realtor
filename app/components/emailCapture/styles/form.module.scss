@@ -1,0 +1,38 @@
+.form {
+  margin-top: 25px;
+}
+
+.input {
+  input {
+    width: 100%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+
+  ::placeholder {
+    color: black;
+    text-align: center;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  margin-top: 15px;
+  button {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+    border: black;
+  }
+  :hover {
+    cursor: pointer;
+  }
+}

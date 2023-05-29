@@ -1,0 +1,17 @@
+.container {
+  width:45%;
+}
+
+.img {
+  background-image: url("https://www.idesignarch.com/wp-content/uploads/Cozy-Dream-Kitchen_1.jpeg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  scale: 1.15;
+}
+
+@media (max-width: 790px) {
+  .container {
+    display: none;
+  }
+}

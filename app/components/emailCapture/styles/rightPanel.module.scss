@@ -1,0 +1,35 @@
+.container {
+  width: 55%;
+  text-align: center;
+  padding: 40px 40px 35px 75px;
+}
+
+.hotAndNew {
+  display: inline-block;
+  background: black;
+  color: white;
+  padding: 5px 15px;
+  line-height: 1.1;
+}
+
+.newListings {
+  font-size: 35px;
+  margin: 20px 0 10px 0;
+  h3 {
+    font-weight: 600;
+  }
+}
+
+.subscribe {
+
+  h4 {
+    font-weight: 300;
+  }
+}
+
+@media (max-width: 790px) {
+  .container {
+    width: 250px;
+    padding: 20px;
+  }
+}

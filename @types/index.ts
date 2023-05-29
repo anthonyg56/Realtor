@@ -22,6 +22,7 @@ export interface IAboutMeFields {
     biography: EntryFields.Text;
     name: EntryFields.Symbol;
     profilePic: Asset;
+    biographyRichText?: CFRichTextTypes.Block | CFRichTextTypes.Inline | CFRichTextTypes.Document;
 }
 
 export type TAboutMe = Entry<IAboutMeFields>;

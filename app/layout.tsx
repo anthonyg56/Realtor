@@ -1,19 +1,17 @@
+"use client"
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import './globals.css'
 import { Poppins } from '@next/font/google'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import { ModalProvider } from '@/app/components/modal'
+import './globals.css'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800']
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
     <html lang="en">
       {/*
@@ -23,8 +21,9 @@ export default function RootLayout({
       <head />
       <body className={poppins.className}>
         <Navbar />
-          {children}
+         {children}
         <Footer />
+        <div id="modal-root"></div>
       </body>
     </html>
   )

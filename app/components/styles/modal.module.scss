@@ -1,0 +1,55 @@
+.modal-root {}
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modalWindow {
+  max-width: 90%;
+  max-height: 90%;
+  // border-radius: 10px;
+  background-color: white;
+  z-index: 110;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  padding: 10px 10px 15px 10px;
+  overflow: hidden;
+}
+
+.closeBtn {
+  width: 100%;
+  display: flex;
+
+  button {
+    margin-left: auto;
+    color: black;
+    background-color: transparent;
+    border: none;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+.modalContent {
+  height: 100%;
+  width: 100%;
+}
