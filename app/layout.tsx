@@ -3,21 +3,15 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { Poppins } from '@next/font/google'
-import './globals.css'
 import { ModalProvider } from '@/app/components/modal'
-
+import './globals.css'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800']
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-
+export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
     <html lang="en">
       {/*
@@ -27,9 +21,7 @@ export default function RootLayout({
       <head />
       <body className={poppins.className}>
         <Navbar />
-        <ModalProvider>
          {children}
-        </ModalProvider>
         <Footer />
         <div id="modal-root"></div>
       </body>

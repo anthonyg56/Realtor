@@ -1,15 +1,25 @@
 "use client"
-import React, { FC, useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import useModal from "../../utils/hooks/useModal";
 import { ModalContext, TModalContext } from "../../utils/contexts/modalContext";
 import EmailCaptureModal from "@/app/components/emailCapture";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./styles/modal.module.scss"
 
+
 export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
-  const { modalOpen, handleModal, component, containerRef } = useModal();
+  let [modalOpen, setModal] = useState(false);
+  let [component, setComponent] = useState<JSX.Element | null>(null);
+
+  let containerRef = useRef<Element | null>(null)
+
+  let handleModal = (newComponent: any, isOpen: boolean) => {
+    setModal(isOpen);
+    if (newComponent) {
+      setComponent(newComponent);
+    }
+  };
 
   return (
     <ModalContext.Provider value={{ modalOpen, handleModal, component, containerRef }}>
@@ -18,6 +28,7 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
     </ModalContext.Provider>
   );
 };
+
 
 export const Modal = () => {
   const { modalOpen, handleModal, component, containerRef } = useContext(
@@ -30,22 +41,21 @@ export const Modal = () => {
   };
 
   const ModalHTML = () => (
-    <div id="modal-wrapper" className={Styles.modalWrapper}>
-        <div
+    <div className={Styles.modalWrapper}>
+      <div
         className={Styles.modalBackground}
-          id="modal-background"
-          style={{ background: "rgba(0,0,0,0.8)" }}
-          onClick={triggerModal}
-        ></div>
-        <div id="modal-window" className={Styles.modalWindow}>
-          <div id="close-btn" className={Styles.closeBtn}>
-            <button onClick={triggerModal}>
-              <FontAwesomeIcon icon={faXmark} />
-            </button>
-          </div>
-          <div id="modal-content" className={Styles.modalContent}>{component}</div>
+        style={{ background: "rgba(0,0,0,0.8)" }}
+        onClick={triggerModal}
+      ></div>
+      <div className={Styles.modalWindow}>
+        <div className={Styles.closeBtn}>
+          <button onClick={triggerModal}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
         </div>
+        <div className={Styles.modalContent}>{component}</div>
       </div>
+    </div>
   )
 
   useEffect(() => {
